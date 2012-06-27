@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Lavanderia";
+  src: url(lavanderia-sturdy.ttf);
+}
+
+.logo{
+  font-family: "Lavanderia";
+  font-size: 140px;
+  line-height: 140px;
+  width: 100%;
+  display: block;
+  @include rotate(-7deg);
+  padding: 10% 0 10% 0;
+  
+  .and{
+    margin-left: -12%;
+    font-size: 200%;
+    display: inline;
+    position: absolute;
+    z-index: -1;
+    color: rgba(50,50,50,0.3);
+  }
+  
+  .nick{
+    margin-left: -7%;
+  } 
+}
+
+.subtitle{
+  font-family: "Lavanderia";
+  padding-bottom: 20px;
+}

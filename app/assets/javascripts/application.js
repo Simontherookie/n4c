@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery.fittext
+
+jQuery(function($) {
+  $(".fittext.logo").fitText(0.6, { minFontSize: '60px' });
+  $(".fittext.subtitle").fitText(2, { minFontSize: '30px', maxFontSize: '70px' });
+});
