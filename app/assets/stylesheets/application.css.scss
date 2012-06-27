@@ -22,6 +22,31 @@ html, body, .container{
   height: 100%;
 }
 
+img{
+  border: 10px solid white;
+}
+
+.tilt_left{
+  @include rotate(-2deg);
+}
+.tilt_right{
+  @include rotate(3deg);
+}
+
+
+.pad_top{
+  padding-top: 50px;
+}
+.pad_right{
+  padding-right: 50px;
+}
+.pad_bottom{
+  padding-bottom: 50px;
+}
+.pad_left{
+  padding-left: 50px;
+}
+
 .padded{
   padding: 0 50px 50px 50px;
 }
