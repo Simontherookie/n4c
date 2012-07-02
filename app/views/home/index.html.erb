@@ -24,6 +24,34 @@
 </section>
 <section class="row-fluid center">
   <div class="span12">
-    <h1 class="subtitle fittext">Your Details</h1>
+    <h1 class="subtitle fittext" style="margin-bottom:30px">Your Details...</h1>
+  </div>
+</section>
+<section class="row-fluid center">
+    <%= simple_form_for @guest, :remote => true do |f| %>
+      <div class="row-fluid">
+        <div class="span12">
+          <%= f.input :name, :label => false, :placeholder => "My name is" %>
+          <hr />
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <%= f.input :address, as: :string, :label => false, :placeholder => "And I live at" %>
+          <hr />
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <%= f.input :email, as: :string, :label => false, :placeholder => "Email me at" %>
+          <hr />
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <%= f.button :submit, "Remember Me!" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </section>
