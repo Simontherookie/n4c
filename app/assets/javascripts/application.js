@@ -14,8 +14,40 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery.fittext
+//= require jquery.placeholder.min
 
 jQuery(function($) {
   $(".fittext.logo").fitText(0.6, { minFontSize: '60px' });
   $(".fittext.subtitle").fitText(2, { minFontSize: '30px', maxFontSize: '70px' });
+  $("input[placeholder]").placeholder();
+  
+  $("form.new_guest").on("ajax:beforeSend", function(){
+    var name = $("input#guest_name");
+    var address = $("input#guest_address");
+    
+    $("input.error").removeClass("error");
+    
+    if(!name.val().length){
+      name.addClass("error");
+      name.attr("placeholder", "Please leave your name!");
+    }
+    if(!address.val().length){
+      address.addClass("error");
+      address.attr("placeholder", "We need your address for invitations!");
+    }
+    
+    if($("input.error").length){
+      return false;
+    }else{
+      $("input[type='submit']").val("Saving...");
+    }
+  }).on("ajax:success", function(){
+    $(".form_container").hide(0, function(){
+      $("h1.your_details").html("Thanks! We will be in touch.").hide(300, function(){
+        $("h1.your_details").fadeIn();
+        window.scrollTo(0,window.outerHeight+100);
+      });
+    });
+  })
+  
 });

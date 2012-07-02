@@ -72,7 +72,20 @@ form{
       color: #888;
       font-weight: normal;
     }
+    
+    &.error{
+      &::-webkit-input-placeholder {
+        color: #A00;
+        font-weight: bold;
+      }
+      &:-moz-placeholder {
+        color: #A00;
+        font-weight: bold;
+      }
+    }
   }
+  
+  
   
   hr{
     position: relative;
@@ -91,7 +104,7 @@ form{
     font-family: "Lavanderia";
     font-weight: bold;
     font-size: 30px;
-    width: 30%;
+    min-width: 30%;
     height: 50px;
   }
 }
