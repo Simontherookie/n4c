@@ -1,14 +1,12 @@
-@font-face {
-  font-family: "Lavanderia";
-  src: url(lavanderia-sturdy.ttf);
-}
-
 .logo{
   font-family: "Lavanderia";
+  @include ligatures();
+  
   font-size: 140px;
   line-height: 140px;
   width: 100%;
   display: block;
+  font-weight: normal;
   @include rotate(-7deg);
   padding: 10% 0 10% 0;
   
@@ -28,6 +26,7 @@
 
 .subtitle{
   font-family: "Lavanderia";
+  font-weight: normal;
 }
 
 form{

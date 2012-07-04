@@ -10,3 +10,19 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
   zoom: 1;
 }
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal ) {
+  @font-face {
+      font-family: $font-family;
+      src: url('#{$file-path}.otf');
+      font-weight: $weight;
+      font-style: $style;
+  }
+}
+
+@mixin ligatures(){
+     -moz-font-feature-settings: "liga=1, dlig=1";
+  -webkit-font-feature-settings: "liga", "dlig";
+       -o-font-feature-settings: "liga", "dlig";
+          font-feature-settings: "liga", "dlig";
+      -ms-font-feature-settings: "liga", "dlig";
+}

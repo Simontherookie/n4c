@@ -6,6 +6,10 @@ $baseLineHeight: 24px;
 @import "mixins";
 @import "home";
 
+@include font-face(Lavanderia, asset_path('lavanderia-regular', font));
+@include font-face(Lavanderia, asset_path('lavanderia-delicate', font), lighter);
+@include font-face(Lavanderia, asset_path('lavanderia-sturdy', font), bold);
+
 html { 
 	background: asset-url("hands.jpg", image) no-repeat center center fixed; 
 	-webkit-background-size: cover;
