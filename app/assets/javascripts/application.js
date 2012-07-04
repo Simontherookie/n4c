@@ -36,18 +36,17 @@ jQuery(function($) {
       address.attr("placeholder", "We need your address for invitations!");
     }
     
+    
+    
     if($("input.error").length){
       return false;
     }else{
       $("input[type='submit']").val("Saving...");
     }
   }).on("ajax:success", function(){
-    $(".form_container").hide(0, function(){
-      $("h1.your_details").html("Thanks! We will be in touch.").hide(300, function(){
-        $("h1.your_details").fadeIn();
-        window.scrollTo(0,window.outerHeight+100);
-      });
-    });
+    $("h1.your_details").hide().html("Thanks! We will be in touch.").fadeIn();
+    $(".form_container").css({"height": $(".form_container").height()});
+    $(".form_container form").hide();
   })
   
 });
