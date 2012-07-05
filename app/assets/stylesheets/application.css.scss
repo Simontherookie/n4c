@@ -7,7 +7,6 @@ $baseLineHeight: 24px;
 @import "home";
 
 @include font-face(Lavanderia, asset_path('lavanderia-regular', font));
-@include font-face(Lavanderia, asset_path('lavanderia-delicate', font), lighter);
 @include font-face(Lavanderia, asset_path('lavanderia-sturdy', font), bold);
 
 html { 
