@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: DATABASE_DEVELOPMENT
+  database: n4c_development
   pool: 5
   username: nickmalcolm
   password:
@@ -12,7 +12,7 @@ test:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: DATABASE_TEST
+  database: n4c_test
   pool: 5
   username: nickmalcolm
   password:
@@ -22,7 +22,7 @@ production:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: DATABASE_PRODUCTION
+  database: n4c_production
   pool: 5
   username: root
   password:
