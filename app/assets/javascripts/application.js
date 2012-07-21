@@ -24,6 +24,7 @@ jQuery(function($) {
   $("form.new_guest").on("ajax:beforeSend", function(){
     var name = $("input#guest_name");
     var address = $("input#guest_address");
+    var email = $("input#guest_email");
     
     $("input.error").removeClass("error");
     
@@ -35,7 +36,10 @@ jQuery(function($) {
       address.addClass("error");
       address.attr("placeholder", "We need your address for invitations!");
     }
-    
+    if(!email.val().length){
+      email.addClass("error");
+      email.attr("placeholder", "We need your email please!");
+    }
     
     
     if($("input.error").length){

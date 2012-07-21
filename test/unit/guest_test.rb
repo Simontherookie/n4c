@@ -16,4 +16,9 @@ class GuestTest < ActiveSupport::TestCase
     assert FactoryGirl.build(:guest, address: "").invalid?
   end
   
+  test "guest requires email" do
+    assert FactoryGirl.build(:guest, email: nil).invalid?
+    assert FactoryGirl.build(:guest, email: "").invalid?
+  end
+  
 end
