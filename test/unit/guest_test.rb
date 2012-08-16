@@ -20,5 +20,10 @@ class GuestTest < ActiveSupport::TestCase
     assert FactoryGirl.build(:guest, email: nil).invalid?
     assert FactoryGirl.build(:guest, email: "").invalid?
   end
+
+  test "guest can be going to reception" do
+    assert FactoryGirl.build(:guest, going_to_reception: true).going_to_reception?
+    assert !FactoryGirl.build(:guest, going_to_reception: false).going_to_reception?
+  end
   
 end
