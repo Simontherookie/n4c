@@ -1,3 +1,17 @@
+html.home { 
+  background: asset-url("hands.jpg", image) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.background-overlay{
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.7);
+  height: 100%;
+}
+
 .logo{
   font-family: "Lavanderia";
   @include ligatures();
@@ -29,7 +43,7 @@
   font-weight: normal;
 }
 
-form{
+form.new_guest{
   
   .control-group, input[type="text"]{
     margin-bottom: 0;

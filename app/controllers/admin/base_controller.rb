@@ -1,5 +1,7 @@
 class Admin::BaseController < ActionController::Base
   
+  layout "admin"
+
   before_filter :login_required
 
   def destroy
@@ -10,7 +12,7 @@ class Admin::BaseController < ActionController::Base
   
   def login_required
     authenticate_or_request_with_http_basic do |username, password|
-      username == "chelsea4nick" && password == "toddandwestleyare#1"
+      username == "todd" && password == "poopbutt"
     end
   end
 

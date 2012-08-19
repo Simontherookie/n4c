@@ -1,1 +1,38 @@
-<h1>Guests</h1>
+<section class="row-fluid">
+  <div class="span12">
+    <h1>Guests</h1>
+  </div>
+</section>
+<section class="row-fluid">
+  <div class="span12">
+    <table>
+      <thead>
+        <tr>
+          <th>Guest Name(s)</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Reception</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @guests.each do |guest| %>
+          <%= content_tag_for :tr, guest do %>
+            <td><%= guest.name %></td>
+            <td><%= mail_to guest.email %></td>
+            <td><%= guest.address %></td>
+            <td>
+              <%= form_for [:admin, guest], remote: true do |f| %>
+                <%= f.hidden_field :going_to_reception, value: !guest.going_to_reception? %>
+                <%= f.submit (guest.going_to_reception ? "Invited" : "Not invited"),
+                class: "btn btn-#{guest.going_to_reception ? 'success' : 'danger'}", 
+                style: "width: 100px", 
+                title: "Click to #{guest.going_to_reception ? 'uninvite' : 'invite'}",
+                %>
+              <% end %>
+            </td>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

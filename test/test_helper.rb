@@ -10,4 +10,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  ADMIN_USERNAME = "todd"
+  ADMIN_PASSWORD = "poopbutt"
+
 end

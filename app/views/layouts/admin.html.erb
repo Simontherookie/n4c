@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="home">
+<html lang="en">
 <head>
   <title>Chelsea and Nick</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "admin/admin" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <div class="container">
   <div class="row-fluid">
-    <div class="span12 background-overlay">
+    <div class="span12">
       <%= yield %>
     </div>
   </div>
