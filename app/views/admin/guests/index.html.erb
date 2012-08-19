@@ -2,6 +2,20 @@
   <div class="span12">
     <h1>Guests</h1>
   </div>
+  <div class="center stats">
+    <div class="span4">
+      <h2><%= @guests.count %></h2>
+      <p>Guests Total</p>
+    </div>
+    <div class="span4">
+      <h2 data-role="going-to-reception-count"><%= @guests.going_to_reception.count %></h2>
+      <p>Going To Reception</p>
+    </div>
+    <div class="span4">
+      <h2 data-role="not-going-to-reception-count"><%= @guests.not_going_to_reception.count %></h2>
+      <p>Not Going To Reception</p>
+    </div>
+  </div>
 </section>
 <section class="row-fluid">
   <div class="span12">
