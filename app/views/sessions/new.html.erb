@@ -1,0 +1,9 @@
+<section class="row-fluid center">
+  <div class="span12">
+    <h1>Log In</h1>
+    <%= simple_form_for @session, :url=>session_url, :method=>:post do |f| %>
+      <%= f.input :email %>
+      <%= f.submit "Log In" %>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+class SessionsController < ApplicationController
+  
+  def new
+    #Log them out
+    session[:guest_id] = nil
+    
+    @session = Session.new(:email=>params[:email].try(:downcase))
+  end
+
+  def create
+    @session = Session.new(params[:session])
+    if guest = @session.guest
+      session[:guest_id] = guest.id
+      redirect_to root_path
+    else
+      flash[:error] = "Sorry! We couldn't find that email address on our guest list"
+      redirect_to new_session_path(:email => @session.email)
+    end
+  end
+
+  def destroy
+    session[:guest_id] = nil
+    redirect_to root_path
+  end
+
+end

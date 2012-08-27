@@ -7,4 +7,6 @@ N4c::Application.routes.draw do
   end
 
   resources :guests, :only => [:create]
+
+  resource :session, :only => [:new, :create, :destroy]
 end
