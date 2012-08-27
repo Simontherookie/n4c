@@ -2,6 +2,8 @@ N4c::Application.routes.draw do
 
   root :to => "home#index"
 
+  get :info, :to => "home#info"
+
   namespace :admin do
     resources :guests, :only => [:index, :update]
   end

@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
   
+  skip_before_filter :require_login
   
   def create
     @guest = Guest.new(params[:guest])
