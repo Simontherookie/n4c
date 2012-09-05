@@ -2,56 +2,44 @@
   <div class="span12">
     <h1 class="logo fittext">Chelsea <span class="and">&amp;</span> <span class="nick">Nick</span></h1>
   </div>
-  <div class="span12 pad_bottom">
-    <h1 class="subtitle fittext">January 12<sup>th</sup> 2013, New Plymouth</h1>
-  </div>
 </section>
 
 <section class="row-fluid">
-  <div class="span12 padded">
-    <%= image_tag "rings.jpg", :class => "span4 tilt_left", :style => "margin-right: 50px;" %>
-    <h2>We're getting married!</h2>
-    <p>It's almost time to start sending out invitations for our big day. Everyone is invited, so make sure to give us your details at the bottom of the page!</p>
+  <div class="span12 padded center">
+    <h1 class="subtitle your_details fittext" style="padding-bottom:30px;">
+      We want you at our wedding!
+    </h1>
+    <p>
+      To RSVP and find out more wedding details, enter your email address below, and log in.
+    </p>
+    <p>
+      If you aren't on our list yet, simply email <%= mail_to "rsvp@nickandchelsea2013.com" %>
+    </p> 
   </div>
 </section>
-<section class="row-fluid">
-  <div class="span12 padded">
-    <%= image_tag "tree.jpg", :class => "span4 tilt_right", :style => "float: right" %>
-    <h2>What's this website for?</h2>
-    <p>This website will contain all the details of our big day. Things like photos, the songs used in the service, a way to R.S.V.P, the gift registry - it will all be here.</p>
-    <p>We'll also send out emails every now and again to keep you in the loop.</p>
-  </div>
-</section>
-<section class="row-fluid center">
-  <div class="span12">
-    <h1 class="subtitle your_details fittext" style="margin-bottom:30px">Your Details...</h1>
-  </div>
-</section>
+
+<% if flash[:error] %>
+  <section class="row-fluid">
+    <div class="span12 center">
+      <h1 class="error subtitle">
+        <%= flash[:error] %>
+      </h1>
+    </div>
+  </section>
+<% end %>
+
 <section class="row-fluid center form_container">
-    <%= simple_form_for @guest, :remote => true do |f| %>
-      <div class="row-fluid">
-        <div class="span12">
-          <%= f.input :name, :label => false, :placeholder => "My name is" %>
-          <hr />
-        </div>
+  <%= simple_form_for @session, :url=>session_path, :html => {:class=> "new_session homepage"} do |f| %>
+    <div class="row-fluid">
+      <div class="span12">
+        <%= f.input :email, :as => :string, :label => false, :placeholder => "Email Address" %>
+        <hr />
       </div>
-      <div class="row-fluid">
-        <div class="span12">
-          <%= f.input :address, as: :string, :label => false, :placeholder => "And I live at" %>
-          <hr />
-        </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <%= f.button :submit, "Log In" %>
       </div>
-      <div class="row-fluid">
-        <div class="span12">
-          <%= f.input :email, as: :string, :label => false, :placeholder => "Email me at" %>
-          <hr />
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span12">
-          <%= f.button :submit, "Remember Me!" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </section>

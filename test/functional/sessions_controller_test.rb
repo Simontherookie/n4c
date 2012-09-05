@@ -21,7 +21,7 @@ class SessionsControllerTest < ActionController::TestCase
 
   test "can't log in as non-existing guest" do
     post :create, :session => {:email => "test@example.com"}
-    assert_redirected_to new_session_path(:email => "test@example.com")
+    assert_redirected_to root_path(:email => "test@example.com")
     assert_nil session[:guest_id]
   end
 
