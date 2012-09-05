@@ -50,6 +50,16 @@ jQuery(function($) {
     $("h1.your_details").hide().html("Thanks! We will be in touch.").fadeIn();
     $(".form_container").css({"height": $(".form_container").height()});
     $(".form_container form").hide();
-  })
+  });
+
+  //Preload a higher res background image
+  var background_image = new Image();
+  $(background_image).load(function() {
+    console.log("Image loaded: "+background_image.src);
+    $("html.home").css("background-image", "url('"+background_image.src+"')");
+  });
+  background_image.src = "<%= image_path "hands.jpg" %>";
+
+
   
 });

@@ -7,7 +7,6 @@ class HomeController < ApplicationController
   end
 
   def info
-    @guest = current_guest
   end
   
 end
