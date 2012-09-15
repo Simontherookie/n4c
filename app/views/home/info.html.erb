@@ -4,4 +4,14 @@
       RSVP
     </h1>
   </div>
+  <div class="span12 padded">
+    <%= simple_form_for current_guest, :html => {:class=> "edit_user "} do |f| %>
+      <%= f.input :rsvp_wedding %>
+      <% if current_guest.going_to_reception? %>
+        <%= f.input :rsvp_reception %>
+      <% end %>
+      <%= f.input :rsvp_bbq %>
+      <%= f.button :submit, "RSVP" %> 
+    <% end %>
+  </div>
 </section>
