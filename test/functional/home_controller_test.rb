@@ -18,7 +18,7 @@ class HomeControllerTest < ActionController::TestCase
   end
 
   test "can't get info page without being logged in" do
-    get :info
+    get :rsvp
     assert_redirected_to new_session_path
   end
 
@@ -32,12 +32,12 @@ class LoggedInInfoTest < ActionController::TestCase
   end
 
   test "can get info page if logged in" do
-    get :info
+    get :rsvp
     assert_response :success
   end
 
   test "can rsvp to wedding and bbq" do
-    get :info
+    get :rsvp
     assert_select "input[name='guest[rsvp_wedding]']"
     assert_select "input[name='guest[rsvp_bbq]']"
   end
@@ -46,12 +46,12 @@ class LoggedInInfoTest < ActionController::TestCase
     @guest.going_to_reception = true
     @guest.save
 
-    get :info
+    get :rsvp
     assert_select "input[name='guest[rsvp_reception]']"
   end
 
   test "rsvp_reception is not shown if not invited" do
-    get :info
+    get :rsvp
     assert_select "input[name='guest[rsvp_reception]']", 0
   end
 

@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @session = Session.new(:email=>params[:email].try(:downcase))
   end
 
-  def info
+  def rsvp
     render :layout => "application"
   end
   

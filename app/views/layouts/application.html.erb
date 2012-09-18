@@ -7,22 +7,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if current_guest %>
+  <div class="navbar navbar row">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="span12">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
 
-<div class="navbar navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Nick &amp; Chelsea 2013</a>
-    <ul class="nav">
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li class="active">
-        <%= link_to "RSVP", info_path %>
-      </li>
-      <li><a href="#">The Big Day</a></li>
-      <li><a href="#">Gift Ideas</a></li>
-    </ul>
+          <a class="brand" href="#">Nick &amp; Chelsea 2013</a>
+
+          <!-- Everything you want hidden at 940px or less, place within here -->
+          <div class="nav-collapse">
+            <ul class="nav">
+              <%= nav_link "Home", root_path %>
+              <%= nav_link "RSVP", rsvp_path %>
+              <%= nav_link "Accommodation", "" %>
+              <%= nav_link "Gift Registry", "" %>
+            </ul>
+            <ul class="nav pull-right">
+              <li>
+                <%= link_to 'Logout', session_path, :action => 'destroy', :method => 'delete' %> 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="container">
   <div class="row">
