@@ -56,9 +56,9 @@ jQuery(function($) {
   var background_image = new Image();
   $(background_image).load(function() {
     console.log("Image loaded: "+background_image.src);
-    $("html.home").css("background-image", "url('"+background_image.src+"')");
+    $("html").css("background-image", "url('"+background_image.src+"')");
   });
-  background_image.src = "<%= image_path "hands.jpg" %>";
+  background_image.src = "<%= image_path "hands_overlaid.jpg" %>";
 
 
   

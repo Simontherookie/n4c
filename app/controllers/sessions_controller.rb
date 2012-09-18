@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       session[:guest_id] = guest.id
       redirect_to info_path
     else
-      flash[:error] = "Sorry! We couldn't find your email address on our guest list!"
+      flash[:error] = "Sorry! Please email us to RSVP."
       redirect_to root_path(:email => @session.email)
     end
   end

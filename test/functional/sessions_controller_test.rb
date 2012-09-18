@@ -15,7 +15,7 @@ class SessionsControllerTest < ActionController::TestCase
   test "can log in as an existing guest" do
     guest = FactoryGirl.create(:guest)
     post :create, :session => {:email => guest.email}
-    assert_redirected_to root_path
+    assert_redirected_to info_path
     assert_equal guest.id, session[:guest_id]
   end
 
