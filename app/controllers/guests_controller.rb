@@ -22,9 +22,10 @@ class GuestsController < ApplicationController
     guest.rsvp_bbq = params[:guest][:rsvp_bbq]
 
     if guest.save
-      head :ok
+      flash[:notice] = "Thanks! Your RSVP has been saved."
+      redirect_to rsvp_path
     else
-      head 422
+      redirect_to rsvp_path, "Sorry, your RSVP was not saved"
     end
   end
 

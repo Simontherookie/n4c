@@ -38,8 +38,16 @@
               } %>
             </ul>
             <ul class="nav pull-right">
+              <li title="<%= current_guest.name %>">
+                <p class="navbar-text">
+                  <%= truncate current_guest.name, length: 35 %>
+                </p>
+              </li>
+              <li class="divider-vertical"></li>
               <li>
-                <%= link_to 'Logout', session_path, :action => 'destroy', :method => 'delete' %> 
+                <%= link_to session_path, :action => 'destroy', :method => 'delete' do %>
+                  <i class="icon-off icon-white"></i> Logout
+                <% end %>
               </li>
             </ul>
           </div>
@@ -50,6 +58,30 @@
 <% end %>
 
 <div class="container">
+
+
+  <% if flash[:error] %>
+    <section class="row-fluid">
+      <div class="span12 center">
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <%= flash[:error] %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <section class="row-fluid">
+      <div class="span12 center">
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
   <div class="row">
     <div class="span12">
       <%= yield %>

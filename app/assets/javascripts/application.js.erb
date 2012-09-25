@@ -18,6 +18,7 @@
 //= require bootstrap-collapse
 //= require bootstrap-tooltip
 //= require bootstrap-popover
+//= require bootstrap-alert
 //= require home
 
 jQuery(function($) {
@@ -67,7 +68,8 @@ jQuery(function($) {
   $("a.coming_soon").popover({
     trigger: "hover",
     title: "Coming Soon!",
-    placement: "bottom"
+    placement: "bottom",
+    delay: { show: 200, hide: 0 }
   }).on("click", function(){
     return false;
   })

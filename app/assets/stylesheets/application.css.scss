@@ -81,3 +81,31 @@ img.right{
   color: #A00;
   font-weight: bold;
 }
+
+.alert{
+  margin: 24px 0;
+}
+
+.nav li {
+  font-size: 14px;
+
+  .navbar-text {
+    line-height: 19px;
+    padding: 9px 10px 11px;
+  }
+
+  .icon-white{
+    opacity: 0.5;
+    margin-top: 1px;
+  }
+
+  a:hover{
+    .icon-white{
+      opacity: 1;
+    }
+  }
+}
+.popover, .popover-title{
+  font-size: 14px;
+  font-weight: normal;
+}

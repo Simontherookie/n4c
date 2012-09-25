@@ -18,16 +18,6 @@
     </div>
   </section>
 
-  <% if flash[:error] %>
-    <section class="row-fluid">
-      <div class="span12 center">
-        <h1 class="error subtitle">
-          <%= flash[:error] %>
-        </h1>
-      </div>
-    </section>
-  <% end %>
-
   <section class="row-fluid center form_container">
     <%= simple_form_for @session, :url=>session_path, :html => {:class=> "new_session homepage"} do |f| %>
       <div class="row-fluid">
