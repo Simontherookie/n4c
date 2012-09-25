@@ -28,7 +28,7 @@
 </section>
 <section class="row-fluid">
   <div class="span12">
-    <table>
+    <table style="width: 100%;">
       <thead>
         <tr>
           <th>Guest Name(s)</th>
@@ -54,14 +54,20 @@
                 %>
               <% end %>
             </td>
-            <td class="center">
-              <%= guest.rsvp_wedding ? "Y" : "N" %> / 
-              <% if guest.going_to_reception? %>
-                <%= guest.rsvp_reception ? "Y" : "N" %>
+            <td style="text-align: center;">
+              <p>
+              <% if guest.rsvp_wedding.nil? %>
+                <small>Waiting</small>
               <% else %>
-               -
-              <% end %> /
-              <%= guest.rsvp_bbq ? "Y" : "N" %> 
+                <%= guest.rsvp_wedding ? "Y" : "N" %> / 
+                <% if guest.going_to_reception? %>
+                  <%= guest.rsvp_reception ? "Y" : "N" %>
+                <% else %>
+                 -
+                <% end %> /
+                <%= guest.rsvp_bbq ? "Y" : "N" %> 
+              <% end %>
+              </p>
           <% end %>
         <% end %>
       </tbody>
