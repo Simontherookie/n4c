@@ -26,8 +26,16 @@
             <ul class="nav">
               <%= nav_link "Home", root_path %>
               <%= nav_link "RSVP", rsvp_path %>
-              <%= nav_link "Accommodation", "" %>
-              <%= nav_link "Gift Registry", "" %>
+              <%= nav_link "Accommodation", "#", 
+                :class => "coming_soon", 
+                :data => {
+                  :content => "We have a special deal if you need a place to stay. Check back soon."
+              } %>
+              <%= nav_link "Gift Registry", "#", 
+                :class => "coming_soon", 
+                :data => {
+                  :content => "We're writing a list and checking it twice. Check back soon."
+              } %>
             </ul>
             <ul class="nav pull-right">
               <li>

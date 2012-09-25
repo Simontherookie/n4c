@@ -16,6 +16,8 @@
 //= require jquery.placeholder.min
 //= require bootstrap-transition
 //= require bootstrap-collapse
+//= require bootstrap-tooltip
+//= require bootstrap-popover
 //= require home
 
 jQuery(function($) {
@@ -58,11 +60,17 @@ jQuery(function($) {
   //Preload a higher res background image
   var background_image = new Image();
   $(background_image).load(function() {
-    console.log("Image loaded: "+background_image.src);
     $("html").css("background-image", "url('"+background_image.src+"')");
   });
   background_image.src = "<%= image_path "hands_overlaid.jpg" %>";
 
+  $("a.coming_soon").popover({
+    trigger: "hover",
+    title: "Coming Soon!",
+    placement: "bottom"
+  }).on("click", function(){
+    return false;
+  })
 
   
 });
