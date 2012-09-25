@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(:version => 20120914234859) do
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
     t.boolean  "going_to_reception", :default => false
-    t.boolean  "rsvp_wedding",       :default => false
-    t.boolean  "rsvp_reception",     :default => false
-    t.boolean  "rsvp_bbq",           :default => false
+    t.boolean  "rsvp_wedding"
+    t.boolean  "rsvp_reception"
+    t.boolean  "rsvp_bbq"
   end
 
 end
