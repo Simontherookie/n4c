@@ -24,7 +24,7 @@ class GuestsControllerTest < ActionController::TestCase
       :rsvp_reception => true,
       :rsvp_bbq => true
     }
-    assert_response :success
+    assert_redirected_to rsvp_path
 
     @guest.reload
 

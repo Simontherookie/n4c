@@ -36,13 +36,15 @@ class LoggedInAdminGuestsControllerTest < ActionController::TestCase
   test "can invite a guest to reception" do
     put :update, :id => @guest.id, :guest => {:going_to_reception => true}
     assert_response :success
-    assert @guest.reload.going_to_reception?
+    @guest.reload
+    assert @guest.going_to_reception?
   end
 
   test "can uninvite a guest to reception" do
     put :update, :id => @guest.id, :guest => {:going_to_reception => false}
     assert_response :success
-    assert !@guest.reload.going_to_reception?
+    @guest.reload
+    assert !@guest.going_to_reception?
   end
   
 end
