@@ -9,9 +9,7 @@
       <dl class="dl-horizontal">
         <dt class="text-success">Are you going?</dt>
         <dd>
-          <label class="checkbox inline">
-            <input class="boolean optional" id="guest_rsvp_wedding" name="guest[rsvp_wedding]" type="checkbox" value="1">
-          </label>
+          <%= f.input :rsvp_wedding, :as => :radio_buttons, :label => false %>
         </dd>
         <dt>Where</dt>
         <dd><%= link_to "The Taranaki Cathedral Church of St Mary", "http://www.taranakicathedral.org.nz/" %></dd>
@@ -35,9 +33,7 @@
       <dl class="dl-horizontal">
         <dt class="text-success">Are you going?</dt>
         <dd>
-          <label class="checkbox inline">
-            <input class="boolean optional" id="guest_rsvp_reception" name="guest[rsvp_reception]" type="checkbox" value="1">
-          </label>
+          <%= f.input :rsvp_reception, :as => :radio_buttons, :label => false %>
         </dd>
         <dt>Where</dt>
         <dd>
@@ -62,9 +58,7 @@
       <dl class="dl-horizontal">
         <dt class="text-success">Are you going?</dt>
         <dd>
-          <label class="checkbox inline">
-            <input class="boolean optional" id="guest_rsvp_bbq" name="guest[rsvp_bbq]" type="checkbox" value="1">
-          </label>
+          <%= f.input :rsvp_bbq, :as => :radio_buttons, :label => false %>
         </dd>
         <dt>Where</dt>
         <dd>
@@ -79,10 +73,14 @@
       <p>
         This scrumptuous feast, graciously hosted by Chelsea's parents, is open to all. You needn't bring anything except an appetite!
       </p>
+      <p>Additional guests are welcome.</p>
     </div>
 
     <div class="span12 center" style="padding: 40px 0 40px 0">
-      <%= f.button :submit, "RSVP", :class => "large btn-success" %> 
+      <%= f.button :submit, "RSVP", :class => "large btn-success" %>
+      <p>You are RSVPing yes to
+        <span class="rsvp_status">nothing</span>.
+      </p> 
     </div>
   <% end %>
 

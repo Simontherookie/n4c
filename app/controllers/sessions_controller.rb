@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     @session = Session.new(params[:session])
     if guest = @session.guest
       session[:guest_id] = guest.id
-      redirect_to info_path
+      redirect_to rsvp_path
     else
       flash[:error] = "Sorry! Please email us to RSVP."
       redirect_to root_path(:email => @session.email)
