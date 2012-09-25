@@ -3,17 +3,26 @@
     <h1>Guests</h1>
   </div>
   <div class="center stats">
-    <div class="span4">
+    <div class="span3">
       <h2><%= @guests.count %></h2>
-      <p>Guests Total</p>
+      <p>Guests Invited</p>
     </div>
-    <div class="span4">
-      <h2 data-role="going-to-reception-count"><%= @guests.going_to_reception.count %></h2>
-      <p>Going To Reception</p>
+    <div class="span3">
+      <h2>
+        <%= @guests.where(:rsvp_wedding => true).count %>
+      </h2>
+      <p>RSVP'd To Wedding</p>
     </div>
-    <div class="span4">
-      <h2 data-role="not-going-to-reception-count"><%= @guests.not_going_to_reception.count %></h2>
-      <p>Not Going To Reception</p>
+    <div class="span3">
+      <h2>
+        <%= @guests.going_to_reception.where(:rsvp_reception => true).count %>/<%= @guests.going_to_reception.count %>
+      </h2>
+      <p>RSVP'd To Reception</p>
+    </div>
+    <div class="span3">
+      <h2>
+        <%= @guests.where(:rsvp_bbq => true).count %></h2>
+      <p>RSVP'd To BBQ</p>
     </div>
   </div>
 </section>
@@ -26,6 +35,7 @@
           <th>Email</th>
           <th>Address</th>
           <th>Reception</th>
+          <th>W/R/B</th>
         </tr>
       </thead>
       <tbody>
@@ -44,6 +54,14 @@
                 %>
               <% end %>
             </td>
+            <td class="center">
+              <%= guest.rsvp_wedding ? "Y" : "N" %> / 
+              <% if guest.going_to_reception? %>
+                <%= guest.rsvp_reception ? "Y" : "N" %>
+              <% else %>
+               -
+              <% end %> /
+              <%= guest.rsvp_bbq ? "Y" : "N" %> 
           <% end %>
         <% end %>
       </tbody>

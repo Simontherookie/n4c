@@ -6,7 +6,7 @@ class Admin::GuestsController < Admin::BaseController
 
   def update
     @guest = Guest.find(params[:id])
-    @guest.going_to_reception ||= params[:guest][:going_to_reception]
+    @guest.going_to_reception = params[:guest][:going_to_reception]
 
     if @guest.save
       head :ok
