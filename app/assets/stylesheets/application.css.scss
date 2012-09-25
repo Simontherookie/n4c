@@ -10,6 +10,13 @@ $baseLineHeight: 24px;
 @include font-face(Lavanderia, asset_path('lavanderia-regular', font));
 @include font-face(Lavanderia, asset_path('lavanderia-sturdy', font), bold);
 
+html{
+  background: asset-url("hands_overlaid_low_res.jpg", image) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 html, body, .container{
   height: 100%;
@@ -20,8 +27,21 @@ p{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-img{
+.navbar{
+  margin-bottom: 0px;
+
+  .container{
+    width: 940px;
+  }
+}
+
+img.bordered{
   border: 10px solid white;
+}
+
+img.right{
+  float: right;
+  margin: 0 0 20px 20px;
 }
 
 .tilt_left{
@@ -29,6 +49,10 @@ img{
 }
 .tilt_right{
   @include rotate(3deg);
+}
+
+.text-success{
+  color: #46a546;
 }
 
 
@@ -51,4 +75,37 @@ img{
 
 .center{
   text-align: center;
+}
+
+.error{
+  color: #A00;
+  font-weight: bold;
+}
+
+.alert{
+  margin: 24px 0;
+}
+
+.nav li {
+  font-size: 14px;
+
+  .navbar-text {
+    line-height: 19px;
+    padding: 9px 10px 11px;
+  }
+
+  .icon-white{
+    opacity: 0.5;
+    margin-top: 1px;
+  }
+
+  a:hover{
+    .icon-white{
+      opacity: 1;
+    }
+  }
+}
+.popover, .popover-title{
+  font-size: 14px;
+  font-weight: normal;
 }

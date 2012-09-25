@@ -8,10 +8,83 @@
   <meta name="google-site-verification" content="a6TKCFSIy0oiuUgQOpCbsiG-JQbKHzaRP0TqNCHLwQw" />
 </head>
 <body>
+<% if current_guest %>
+  <div class="navbar navbar row">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="span12">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="brand" href="#">Nick &amp; Chelsea 2013</a>
+
+          <!-- Everything you want hidden at 940px or less, place within here -->
+          <div class="nav-collapse">
+            <ul class="nav">
+              <%= nav_link "Home", root_path %>
+              <%= nav_link "RSVP", rsvp_path %>
+              <%= nav_link "Accommodation", "#", 
+                :class => "coming_soon", 
+                :data => {
+                  :content => "We have a special deal if you need a place to stay. Check back soon."
+              } %>
+              <%= nav_link "Gift Registry", "#", 
+                :class => "coming_soon", 
+                :data => {
+                  :content => "We're writing a list and checking it twice. Check back soon."
+              } %>
+            </ul>
+            <ul class="nav pull-right">
+              <li title="<%= current_guest.name %>">
+                <p class="navbar-text">
+                  <%= truncate current_guest.name, length: 35 %>
+                </p>
+              </li>
+              <li class="divider-vertical"></li>
+              <li>
+                <%= link_to session_path, :action => 'destroy', :method => 'delete' do %>
+                  <i class="icon-off icon-white"></i> Logout
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="container">
-  <div class="row-fluid">
-    <div class="span12 background-overlay">
+
+
+  <% if flash[:error] %>
+    <section class="row-fluid">
+      <div class="span12 center">
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <%= flash[:error] %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <section class="row-fluid">
+      <div class="span12 center">
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <div class="row">
+    <div class="span12">
       <%= yield %>
     </div>
   </div>

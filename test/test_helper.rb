@@ -13,4 +13,8 @@ class ActiveSupport::TestCase
   ADMIN_USERNAME = "todd"
   ADMIN_PASSWORD = "poopbutt"
 
+  def login_as(guest)
+    session[:guest_id] = guest.try(:id)
+  end
+
 end

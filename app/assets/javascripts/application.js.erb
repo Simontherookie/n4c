@@ -14,6 +14,12 @@
 //= require jquery_ujs
 //= require jquery.fittext
 //= require jquery.placeholder.min
+//= require bootstrap-transition
+//= require bootstrap-collapse
+//= require bootstrap-tooltip
+//= require bootstrap-popover
+//= require bootstrap-alert
+//= require home
 
 jQuery(function($) {
   $(".fittext.logo").fitText(0.6, { minFontSize: '60px' });
@@ -50,6 +56,23 @@ jQuery(function($) {
     $("h1.your_details").hide().html("Thanks! We will be in touch.").fadeIn();
     $(".form_container").css({"height": $(".form_container").height()});
     $(".form_container form").hide();
+  });
+
+  //Preload a higher res background image
+  var background_image = new Image();
+  $(background_image).load(function() {
+    $("html").css("background-image", "url('"+background_image.src+"')");
+  });
+  background_image.src = "<%= image_path "hands_overlaid.jpg" %>";
+
+  $("a.coming_soon").popover({
+    trigger: "hover",
+    title: "Coming Soon!",
+    placement: "bottom",
+    delay: { show: 200, hide: 0 }
+  }).on("click", function(){
+    return false;
   })
+
   
 });

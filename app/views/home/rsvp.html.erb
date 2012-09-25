@@ -1,0 +1,105 @@
+<section class="row" style="padding-top: 20px;">
+
+  <%= simple_form_for current_guest, :html => {:class=> "edit_guest form-inline"} do |f| %>
+
+    <div class="span12">
+      <h1>The Wedding</h1>
+      <%= image_tag "st_marys_cathedral_taranaki.jpg", :class => "span4 bordered right" %>
+
+      <dl class="dl-horizontal">
+        <dt class="text-success">Are you going?</dt>
+        <dd>
+          <%= f.input :rsvp_wedding, :as => :radio_buttons, :label => false %>
+        </dd>
+        <dt>Where</dt>
+        <dd><%= link_to "The Taranaki Cathedral Church of St Mary", "http://www.taranakicathedral.org.nz/" %></dd>
+        <dt>When</dt>
+        <dd>2pm, 12<sup>th</sup> January 2012</dd>
+      </dl>
+      <h3>More Information</h3>
+      <p>
+        We will post an order of service when we work one out!
+      </p>
+      <p>
+        St Mary's is located at 37 Vivian Street, New Plymouth. It has some parking, as do the surrounding streets. It is also within walking distance of the town centre.
+      </p>
+    </div>
+
+    <% if current_guest.going_to_reception? %>
+      <div class="span12">
+      <h1>The Reception</h1>
+      <%= image_tag "plymouth.jpg", :class => "span4 bordered right" %>
+
+      <dl class="dl-horizontal">
+        <dt class="text-success">Are you going?</dt>
+        <dd>
+          <%= f.input :rsvp_reception, :as => :radio_buttons, :label => false %>
+        </dd>
+        <dt>Where</dt>
+        <dd>
+          <%= link_to "Quality Hotel Plymouth International", "http://www.plymouth.co.nz/" %><br />
+          Cnr. Courtenay &amp; Leach St,<br />
+          New Plymouth.
+        </dd>
+        <dt>When</dt>
+        <dd>5:00pm, 12<sup>th</sup> January 2012</dd>
+      </dl>
+      <h3>More Information</h3>
+      <p>
+        Unfortunately we can only accommodate invited friends and family. Plus ones and children are most welcome at the barbeque the day after, though! Thanks for understanding.
+      </p>
+    </div>
+    <% end %>
+    
+    <div class="span12">
+      <h1>The BBQ</h1>
+      <%= image_tag "bbq.jpg", :class => "span4 bordered right" %>
+
+      <dl class="dl-horizontal">
+        <dt class="text-success">Are you going?</dt>
+        <dd>
+          <%= f.input :rsvp_bbq, :as => :radio_buttons, :label => false %>
+        </dd>
+        <dt>Where</dt>
+        <dd>
+          <%= link_to "The Sutton House, a.k.a. Kaos Kastle", "http://maps.google.co.nz/maps?q=8+antonia+place,+new+plymouth" %><br />
+          8 Antonia Place,<br />
+          Bell Block.
+        </dd>
+        <dt>When</dt>
+        <dd>From 11am, 13<sup>th</sup> January 2012</dd>
+      </dl>
+      <h3>More Information</h3>
+      <p>
+        This scrumptuous feast, graciously hosted by Chelsea's parents, is open to all. You needn't bring anything except an appetite!
+      </p>
+      <p>Additional guests are welcome.</p>
+    </div>
+
+    <div class="span12 center" style="padding: 40px 0 40px 0">
+      <%= f.button :submit, "RSVP", :class => "large btn-success" %>
+      <p>
+        <small>You are RSVPing yes to
+          <span class="rsvp_status">nothing</span>.
+        </small>
+      </p> 
+    </div>
+  <% end %>
+
+  <div class="span12">
+    <h3>Questions?</h3>
+    <p>
+      If you're unsure of anything, feel free to email us at <%= mail_to "rsvp@nickandchelsea2013.com" %>.
+    </p>
+  </div>
+
+  <div class="span12">
+    <h3>How to RSVP</h3>
+    <p>
+      Click the tick box for the part(s) of our Wedding that you are able to attend. Then, towards the bottom of the page, click the "RSVP" button.
+    </p> 
+    <p>
+      As well as RSVP-ing, you can also find out more information, including times and locations.
+    </p>
+  </div>
+</section>
