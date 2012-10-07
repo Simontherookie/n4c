@@ -1,7 +1,6 @@
 class Guest < ActiveRecord::Base
   
   validates :name, presence: {allow_blank: false}
-  validates :address, presence: {allow_blank: false}
   validates :email, presence: {allow_blank: false}
   
   scope :going_to_reception, where(:going_to_reception => true)
