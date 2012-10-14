@@ -7,7 +7,7 @@ class Session
   end
 
   def guest
-    @_guest ||= Guest.find_by_email(email)
+    @_guest ||= Guest.find_by_email(email.downcase)
   end
 
   def to_key

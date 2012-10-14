@@ -7,4 +7,11 @@ class Guest < ActiveRecord::Base
   scope :not_going_to_reception, where("going_to_reception != ?", true)
 
   attr_accessible :address, :email, :name
+
+  before_save :downcase_email
+
+  private
+    def downcase_email
+      self.email = self.email.downcase
+    end
 end

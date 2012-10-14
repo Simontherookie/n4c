@@ -19,6 +19,13 @@ class SessionsControllerTest < ActionController::TestCase
     assert_equal guest.id, session[:guest_id]
   end
 
+  test "can log in non case-sensitive" do
+    guest = FactoryGirl.create(:guest, email: "aBc@DfG.cOm")
+    post :create, :session => {:email => "Abc@dFg.com"}
+    assert_redirected_to rsvp_path
+    assert_equal guest.id, session[:guest_id]
+  end
+
   test "can't log in as non-existing guest" do
     post :create, :session => {:email => "test@example.com"}
     assert_redirected_to root_path(:email => "test@example.com")
