@@ -5,7 +5,7 @@ N4c::Application.routes.draw do
   get :rsvp, :to => "home#rsvp"
 
   namespace :admin do
-    resources :guests, :only => [:index, :update]
+    resources :guests, :only => [:index, :create, :update]
   end
 
   resources :guests, :only => [:create, :update]

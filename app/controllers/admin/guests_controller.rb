@@ -4,6 +4,11 @@ class Admin::GuestsController < Admin::BaseController
     @guests = Guest.order("going_to_reception DESC, name ASC")
   end
 
+  def create
+    @guest = Guest.create(params[:guest])
+    redirect_to admin_guests_path
+  end
+
   def update
     @guest = Guest.find(params[:id])
     @guest.going_to_reception = params[:guest][:going_to_reception]

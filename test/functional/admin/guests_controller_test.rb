@@ -33,6 +33,16 @@ class LoggedInAdminGuestsControllerTest < ActionController::TestCase
     @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(ADMIN_USERNAME, ADMIN_PASSWORD)
   end
 
+  test "can create a guest" do
+    assert_difference "Guest.count" do
+      post :create, :guest => {:name => "Bob", :email => "Bob@Test.com"}
+      assert_redirected_to admin_guests_path
+    end
+    g = Guest.last
+    assert_equal "Bob", g.name
+    assert_equal "bob@test.com", g.email
+  end
+
   test "can invite a guest to reception" do
     put :update, :id => @guest.id, :guest => {:going_to_reception => true}
     assert_response :success
