@@ -13,7 +13,7 @@
         If you haven't used our website before, simply email <%= mail_to "rsvp@nickandchelsea2013.com" %>
       </p>
       <p>
-        Otherwise, log in below. You can then RSVP and find out more wedding details.
+        Otherwise, log in using the email address you gave us before. You can then RSVP and find out more wedding details.
       </p>
     </div>
   </section>
@@ -22,7 +22,7 @@
     <%= simple_form_for @session, :url=>session_path, :html => {:class=> "new_session homepage"} do |f| %>
       <div class="row-fluid">
         <div class="span12">
-          <%= f.input :email, :as => :string, :label => false, :placeholder => "Email Address" %>
+          <%= f.input :email, :as => :string, :label => false, :placeholder => "What's Your Email Address?" %>
           <hr />
         </div>
       </div>
