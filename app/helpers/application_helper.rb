@@ -6,4 +6,15 @@ module ApplicationHelper
     end
   end
 
+  def tristateboolean bool
+    case bool
+    when true
+      "Y"
+    when false
+      "N"
+    when nil
+      "-"
+    end
+  end
+
 end

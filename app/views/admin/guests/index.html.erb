@@ -59,13 +59,9 @@
               <% if guest.rsvp_wedding.nil? %>
                 <small>Waiting</small>
               <% else %>
-                <%= guest.rsvp_wedding ? "Y" : "N" %> / 
-                <% if guest.going_to_reception? %>
-                  <%= guest.rsvp_reception ? "Y" : "N" %>
-                <% else %>
-                 -
-                <% end %> /
-                <%= guest.rsvp_bbq ? "Y" : "N" %> 
+                <%= tristateboolean guest.rsvp_wedding %> / 
+                <%= tristateboolean guest.rsvp_reception %> /
+                <%= tristateboolean guest.rsvp_bbq %> 
               <% end %>
               </p>
           <% end %>
