@@ -70,3 +70,13 @@
     </table>
   </div>
 </section>
+<section class="row-fluid">
+  <div class="span12">
+    <h1>Add new guest</h1>
+    <%= simple_form_for Guest.new, :url=>admin_guests_path, :html => {:class => "form-inline"} do |f| %>
+      <%= f.input_field :name, :placeholder => "Name" %>
+      <%= f.input_field :email, :placeholder => "Email" %>
+      <%= f.submit "Create", :class => 'btn btn-primary' %>
+    <% end %>
+  </div>
+</section>
