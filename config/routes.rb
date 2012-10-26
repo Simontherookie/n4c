@@ -3,6 +3,7 @@ N4c::Application.routes.draw do
   root :to => "home#index"
 
   get :rsvp, :to => "home#rsvp"
+  get :accommodation, :to => "home#accommodation"
 
   namespace :admin do
     resources :guests, :only => [:index, :create, :update]

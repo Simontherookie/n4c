@@ -9,5 +9,8 @@ class HomeController < ApplicationController
   def rsvp
     render :layout => "application"
   end
+
+  def accommodation
+  end
   
 end
