@@ -1,7 +1,7 @@
 class GiftsController < ApplicationController
   
   def index
-    @gifts = Gift.ungifted
+    @gifts_by_category = Gift.gifts_by_category
     @dibsed = Gift.where(:guest => current_guest)
   end
 
@@ -9,12 +9,19 @@ class GiftsController < ApplicationController
     @gift = Gift.find_by_id(params[:id])
 
     if @gift.guest
-      flash[:error] = "Sorry, that gift has already been dibsed."
+      if @gift.guest.eql?(current_guest)
+        #undibs
+        flash[:warning] = "You are no longer gifting us '#{@gift.name}'!"
+        @gift.guest = nil
+      else
+        flash[:error] = "Sorry, that gift has already been dibsed."
+      end
     else
-      flash[:notice] = "Thanks for getting us '#{@gift.name}'!"
+      flash[:notice] = "Thanks for gifting us '#{@gift.name}'!"
       @gift.guest = current_guest
-      @gift.save!
     end
+    
+    @gift.save!
     redirect_to gifts_path
   end
 

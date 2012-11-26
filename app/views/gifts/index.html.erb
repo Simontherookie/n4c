@@ -2,50 +2,51 @@
   <div class="span12">
     <h1>Gift Register</h1>
     <p>
-      Your presence at our wedding is present alone! However, if you feel like bringing a gift for us, we've made a list of suggestions. Chelsea and I are starting from a near clean slate, so you can get pretty much anything and we'll love it! Spend as little or as much as you'd like. 
+      Your presence at our wedding is present alone! However, if you feel like bringing a gift for us, we've made a fairly long list of suggestions. Chelsea and I are starting from a near clean slate, so you can get pretty much anything and we'll love it! Spend as little or as much as you'd like. 
+    </p>
+    <p>
+      <strong>Dibsing</strong>. If someone has already indicated they'd like to gift us an item, it will be shown as greyed out. If you have a strong desire to get us something that has been dibsed, you can still feel free to gift it to us.
     </p>
     <p>
       <strong>Colours</strong>. If you're getting something like towels, or sheets, or things to decorate a room, we are thinking of going for a natural/ forest colour pallette. Greens, whites/cremes, browns, wood.
     </p>
+    <p>
+      <strong>Numbers</strong>. For dinnerware we've aimed for 6 of each, but if the sets are of 8, that's fine too :)
+    </p>
   </div>
 </section>
 
-<hr />
-
-<section class="row" style="padding-top: 20px;">
-  <div class="span12">
-    <ul>
-      <li>20pc Dinner Set</li>
-      <li>Cutlery</li>
-      <li>Chef's Knife</li>
-      <li>Knife Block</li>
-      <li>Chopping Board</li>
-      <li>Tumblers</li>
-      <li>Wine Glasses</li>
-      <li>Serving Platters</li>
-      <li>Containers / Tupperware</li>
-    </ul>
-    <li>
-      <li>Pots &amp; Pans</li>
-      <li>Frying pan</li>
-      <li>Casserole dish</li>
-      <li>Flan/ Quiche dish</li>
-    </ul>
-    <ul>
-      <li>Queen-size Duvet and/or Covers</li>
-    </ul>
-  </div>
-</section>
-
-<section class="row" style="padding-top: 20px;">
-  <div class="span12">
-    <h2>Things we don't need</h2>
-    <p>Here are a few things we already own:</p>
-    <ul>
-      <li>Queen size bed <em>sheets</em></li>
-      <li>Mirrors</li>
-      <li>Toaster</li>
-      <li>Rice cooker</li>
-    </ul>
-  </div>
-</section>
+<% @gifts_by_category.each do |category| %>
+  <section class="row" style="padding-top: 20px;">
+    <div class="span12">
+      <h2><%= category[:category] %></h2>
+      <table class="gifts">
+        <tbody>
+          <% category[:gifts].each_with_index do |gift, i| %>
+            <tr class="<%= "#{"dibsed"  if gift.guest.present?} #{"odd"  if i.odd?}" %>">
+              <%= form_for gift do |f| %>
+                <td class="span6">
+                  <%= gift.name %>
+                  <% if gift.guest.eql?(current_guest) %>
+                    has been dibsed by you
+                  <% end %>
+                </td>
+                <td class="span3 center">
+                  <% if gift.guest.present? %>
+                    <% if gift.guest.eql? current_guest %>
+                      <%= f.button "Undibs", :class => "span2 btn btn-warning" %>
+                    <% else %>
+                      <%= button_tag "Dibsed", :disabled => true, :class => "span2 btn" %>
+                    <% end %>
+                  <% else %>
+                    <%= f.button "Dibs", :class => "span2 btn btn-success" %>
+                  <% end %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+<% end %>

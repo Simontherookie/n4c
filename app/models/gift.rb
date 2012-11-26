@@ -8,4 +8,16 @@ class Gift < ActiveRecord::Base
 
   scope :ungifted, where("guest_id IS NULL")
 
+  def self.gifts_by_category
+    categories = Gift.order(:id).all.map(&:category).uniq
+    result = []
+    categories.each do |category|
+      result << {
+        :category => category,
+        :gifts => Gift.where(:category => category).order(:id)
+      }
+    end
+    result
+  end
+
 end

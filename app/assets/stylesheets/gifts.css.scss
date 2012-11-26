@@ -1,0 +1,28 @@
+.gifts{
+  tr {
+
+    &.odd{
+      background-color: #aaa;
+      background-color: rgba(160,160,160,0.5);
+    }
+    &:hover{
+      background-color: #ddd;
+      background-color: rgba(128,128,128,0.5);
+    }
+
+    &.dibsed{
+      color: #666;
+
+      &.current_guest_dibsed{
+        font-weight: bold;
+        color: #a00;
+      }
+
+    }
+
+    td{
+      padding: 5px;
+      min-height: 44px;
+    }
+  }
+}
