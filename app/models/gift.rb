@@ -6,4 +6,6 @@ class Gift < ActiveRecord::Base
   
   attr_accessible :category, :description, :name
 
+  scope :ungifted, where("guest_id IS NULL")
+
 end
