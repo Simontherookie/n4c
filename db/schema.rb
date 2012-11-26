@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914234859) do
+ActiveRecord::Schema.define(:version => 20121126053950) do
+
+  create_table "gifts", :force => true do |t|
+    t.string   "name",        :null => false
+    t.string   "description"
+    t.string   "category"
+    t.integer  "guest_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "gifts", ["category"], :name => "index_gifts_on_category"
+  add_index "gifts", ["guest_id"], :name => "index_gifts_on_guest_id"
 
   create_table "guests", :force => true do |t|
     t.string   "name"
