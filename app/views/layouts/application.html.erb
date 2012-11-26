@@ -14,10 +14,13 @@
       <div class="container">
         <a class="brand" href="#">Nick &amp; Chelsea 2013</a>
         <ul class="nav">
-          <%= nav_link "Home", root_path %>
           <%= nav_link "RSVP", rsvp_path %>
-          <%= nav_link "Accommodation", accommodation_path %>
-          <%= nav_link "Gift Register", gifts_path %>
+          <%= nav_link "Accommodation & Map", accommodation_path %>
+           <%= nav_link "Gift Register", "#", 
+             :class => "coming_soon", 
+             :data => {
+               :content => "We're writing a list and checking it twice. Check back soon."
+           } %>
         </ul>
         <ul class="nav pull-right">
           <li title="<%= current_guest.name %>">
