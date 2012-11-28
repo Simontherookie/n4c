@@ -12,6 +12,7 @@ N4c::Application.routes.draw do
   resources :guests, :only => [:create, :update]
 
   resource :session, :only => [:new, :create, :destroy]
+  get "sessions", :to => "sessions#create"
 
   resources :gifts, :only => [:index, :update]
 end

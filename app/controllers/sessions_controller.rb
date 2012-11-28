@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
     @session = Session.new(params[:session])
     if guest = @session.guest
       session[:guest_id] = guest.id
+      flash[:notice] = "Welcome, #{guest.name}!"
       redirect_to rsvp_path
     else
       flash[:error] = "Sorry, you need to email rsvp@nickandchelsea2013.com before you can log in."
