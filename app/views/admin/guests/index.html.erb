@@ -42,7 +42,7 @@
         <% @guests.each do |guest| %>
           <%= content_tag_for :tr, guest do %>
             <td><%= guest.name %></td>
-            <td><%= mail_to guest.email %></td>
+            <td><%= link_to guest.email, sessions_path(:session => {:email => guest.email}) %></td>
             <td><%= guest.address %></td>
             <td>
               <%= form_for [:admin, guest], remote: true do |f| %>
