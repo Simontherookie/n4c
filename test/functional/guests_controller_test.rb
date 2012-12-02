@@ -20,9 +20,9 @@ class GuestsControllerTest < ActionController::TestCase
   test "can rsvp if logged in" do
     login_as @guest
     put :update, :id => @guest.to_param, :guest => {
-      :rsvp_wedding => true,
-      :rsvp_reception => true,
-      :rsvp_bbq => true
+      "rsvp_wedding" => "true",
+      "rsvp_reception" => "true",
+      "rsvp_bbq" => "true"
     }
     assert_redirected_to rsvp_path
 
@@ -38,12 +38,29 @@ class GuestsControllerTest < ActionController::TestCase
     @guest.save!
     login_as @guest
     put :update, :id => @guest.to_param, :guest => {
-      :rsvp_reception => true
+      "rsvp_wedding" => "true",
+      "rsvp_reception" => "true",
+      "rsvp_bbq" => "true"
     }
 
     @guest.reload
 
     assert @guest.rsvp_reception
+  end
+
+  test "can rsvp no to reception if invited" do
+    @guest.going_to_reception = true
+    @guest.save!
+    login_as @guest
+    put :update, :id => @guest.to_param, :guest => {
+      "rsvp_wedding" => "true",
+      "rsvp_reception" => "false",
+      "rsvp_bbq" => "false"
+    }
+
+    @guest.reload
+
+    assert !@guest.rsvp_reception, "Guest RSVPd no to reception"
   end
   
 end

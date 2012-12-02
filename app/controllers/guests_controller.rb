@@ -17,9 +17,13 @@ class GuestsController < ApplicationController
   def update
     guest = current_guest
 
-    guest.rsvp_wedding = params[:guest][:rsvp_wedding]
-    guest.rsvp_reception = params[:guest][:rsvp_reception] && guest.going_to_reception?
-    guest.rsvp_bbq = params[:guest][:rsvp_bbq]
+    if params[:guest]
+      guest.rsvp_wedding = params[:guest][:rsvp_wedding].eql?("true")
+      if guest.going_to_reception?
+        guest.rsvp_reception = params[:guest][:rsvp_reception].eql?("true")
+      end
+      guest.rsvp_bbq = params[:guest][:rsvp_bbq].eql?("true")
+    end
 
     if guest.save
       flash[:notice] = "Thanks! Your RSVP has been saved."
