@@ -1,3 +1,5 @@
+[ ![Codeship Status for Simontherookie/n4c](https://www.codeship.io/projects/0f608cd0-fc40-0131-1d8e-62191b91b0d1/status)](https://www.codeship.io/projects/29331)
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
